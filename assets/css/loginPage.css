@@ -1,0 +1,263 @@
+
+@font-face {
+    font-family: 'ProximaNovaRegular';
+    src: url('proximanova-reg-webfont.eot');
+    src: url('proximanova-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('proximanova-reg-webfont.woff') format('woff'),
+         url('proximanova-reg-webfont.ttf') format('truetype'),
+         url('proximanova-reg-webfont.svg#ProximaNovaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, button, input, select, textarea { font-family: ProximaNovaRegular; color: #fff; }
+#header {
+width: 100%;
+padding: 30px 100px 25px 0;
+border-bottom: 1px solid #ddd;
+position: fixed !important;
+overflow: visible;
+top: 0;
+left: 0;
+
+z-index: 99;
+}
+
+.container {
+width: 100%;
+max-width: 960px;
+margin: 0 auto;
+padding: 0;
+overflow: hidden;
+position: relative;
+}
+#nav{
+    display: inline-block;
+    list-style: none;
+     margin:0;
+}
+
+#nav li {
+float: left;
+margin-left: 10px;
+position:relative;
+}
+
+#nav li a
+{
+    color:#eee;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-weight: bold;
+    display:block;
+}
+#nav ul { 
+    position: absolute;
+    
+   
+    
+    cursor: pointer;
+    
+}
+
+
+#nav li a:hover{
+    color:orange;
+}
+
+#nav li ul li{
+    float:left;
+   list-style: none;
+    display:block;
+}
+
+.search
+{
+    top:90px;
+    position:absolute;
+}
+
+#mask {
+	display: none;
+	background: #000; 
+	position: fixed; left: 0; top: 0; 
+	z-index: 10;
+	width: 100%; height: 100%;
+	opacity: 0.8;
+	z-index: 999;
+}
+
+/* You can customize to your needs  */
+.login-popup{
+	display:none;
+	background: #fff;
+	padding: 10px; 	
+	border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 99999;
+	box-shadow: 0px 0px 20px #999; /* CSS3 */
+        -moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+        -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+	border-radius:3px 3px 3px 3px;
+        -moz-border-radius: 3px; /* Firefox */
+        -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+
+img.btn_close { Position the close button
+	float: right; 
+	margin: -28px -28px 0 0;
+}
+
+fieldset { 
+	border:none; 
+}
+
+form.signin .textbox label { 
+	display:block; 
+	padding-bottom:7px; 
+}
+
+form.signin .textbox span { 
+	display:block;
+}
+
+form.signin p, form.signin span { 
+	color:#999; 
+	font-size:11px; 
+	line-height:18px;
+} 
+
+form.signin .textbox input { 
+	background:#666666; 
+	border-bottom:1px solid #333;
+	border-left:1px solid #000;
+	border-right:1px solid #333;
+	border-top:1px solid #000;
+	color:#fff; 
+        border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+	font:13px Arial, Helvetica, sans-serif;
+	padding:6px 6px 4px;
+	width:200px;
+}
+
+form.signin input:-moz-placeholder { color:#bbb; text-shadow:0 0 2px #000; }
+form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #000;  }
+
+.button { 
+	background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+	background:  -o-linear-gradient(top, #f3f3f3, #dddddd);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+	border-color:#000; 
+	border-width:1px;
+        border-radius:4px 4px 4px 4px;
+	-moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+	color:#333;
+	cursor:pointer;
+	display:inline-block;
+	padding:6px 6px 4px;
+	margin-top:10px;
+	font:12px; 
+	width:214px;
+}
+.button:hover { background:#ddd; }
+
+
+.fieldBlock
+    {
+    display: block;
+    background-color: rgb(200, 200, 200);
+    width: 200px;
+    float: left;
+    padding: 10px;
+    }
+   
+    #sidebar{
+   border-right: 1px solid #fff;
+bottom: 0;
+width:400px;
+height:500px;
+overflow-x: hidden;
+overflow-y: auto;
+padding-bottom: 20px;
+float:right;
+margin-top: 50px;
+
+    }
+    .tab{
+    cursor: pointer;
+display: block;
+font-size: 12px;
+font-weight: bold;
+padding: 5px 20px;
+list-style-type: none;
+    }
+.scroll::-webkit-scrollbar {
+-webkit-appearance: none;
+position: absolute;
+width: 7px;}
+
+.scroll::-webkit-scrollbar-thumb {
+background-color: rgba(0, 0, 0, .5);
+border-radius: 4px;
+-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+#choose_activity{
+background: #fff;
+border: 1px solid #ccc;
+-moz-box-shadow: 0 0 6px #999;
+-webkit-box-shadow: 0 0 6px #999;
+box-shadow: 0 0 6px #999;
+bottom: 50px;
+left: 50%;
+margin-left: -335px;
+max-height: 750px;
+position: absolute;
+top: 50px;
+width: 716px;
+}
+
+#choose_activity .header{
+border-bottom: 1px solid #ececec;
+height: 75px;
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+}
+#choose_activity .content {
+bottom: 0;
+left: 0;
+position: absolute;
+right: 0;
+top: 76px;
+color: #000;
+}
+#choose_activity #sidebar {
+border-right: 1px solid #ececec;
+bottom: 0;
+left: 0;
+overflow-x: hidden;
+overflow-y: auto;
+padding-bottom: 20px;
+position: absolute;
+top: 0;
+right: 451px;
+}
+#choose_activity .main {
+bottom: 0;
+left: 265px;
+overflow-x: hidden;
+overflow-y: auto;
+position: absolute;
+right: 0;
+top: 0;
+}
