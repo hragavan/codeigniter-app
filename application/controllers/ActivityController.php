@@ -12,6 +12,7 @@ function __construct()
 	{	
 	 
 	 $result=$this->activity->save_Activity($this->input->post()); 
+	 echo "hi";
 		
 	}
 }
