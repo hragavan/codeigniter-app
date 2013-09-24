@@ -74,7 +74,7 @@ position:relative;
 
 .search
 {
-    top:90px;
+    
     position:absolute;
 }
 
@@ -179,7 +179,7 @@ form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #
     padding: 10px;
     }
    
-    #sidebar{
+    .sidebar{
    border-right: 1px solid #fff;
 bottom: 0;
 width:400px;
