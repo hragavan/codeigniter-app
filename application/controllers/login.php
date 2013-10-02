@@ -12,7 +12,7 @@ class Login extends CI_Controller {
  {
 	 $this->load->helper('url');
    $this->load->helper(array('form'));
-   $this->load->view('login_view');
+   $this->load->view('login_view.phtml');
  }
  
  

@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->model('activity','',TRUE);
 		$data['activity']=$this->activity->activity_list();
-		$this->load->view('welcome_message',$data);
+		$this->load->view('welcome_message.phtml',$data);
 	}
 }
 

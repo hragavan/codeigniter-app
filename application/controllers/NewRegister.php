@@ -22,7 +22,7 @@ class NewRegister extends CI_Controller {
    $result=$this->register->add($data); 
    if($result==true)
    {
-	   $this->load->view('welcome_message');
+	   $this->load->view('welcome_message.phtml');
    }
  }
 }

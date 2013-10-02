@@ -21,14 +21,14 @@ class VerifyLogin extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
-     $this->load->view('login_view');
+     $this->load->view('login_view.phtml');
    }
    else
    {
 	 $data['activity']=$this->activity->activity_list();	
      //Go to private area
 	 
-     $this->load->view('welcome_message',$data);
+     $this->load->view('welcome_message.phtml',$data);
    }
 
  }
