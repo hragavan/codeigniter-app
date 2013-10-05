@@ -30,10 +30,13 @@
 <div class="header"><h2>How do you spend your day?</h2></div>
 <div id="left_profile" style='float: left;width: 200px;'>
 <!--<?php echo form_open_multipart('upload/doupload');?>-->
-	<form action ='upload/doupload' method ="post" enctype="multipart/form-data">
-<img src="http://www.madico.com/wp-content/uploads/2009/10/avatar-empty.gif" style="width:100px;">
-
-<input type="file" name="file" size="2000000" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png" size="26" /><br/>
+	<form id="profile_pic" enctype="multipart/form-data" onsubmit ="return false;">
+	
+	<!--	<img id="user_picture" src="<? echo "../../application/uploads/".$filepath?>">-->
+	
+		<img id="user_picture" src="http://www.madico.com/wp-content/uploads/2009/10/avatar-empty.gif" style="width:100px;">
+	
+<input type="file" id="file" name="file" size="2000000" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png" size="26" /><br/>
 <br /><br />
 <INPUT type="submit" class="button" name="Submit" value=" Submit" /> 
 &nbsp;&nbsp;<INPUT type="reset" class="button" value="Cancel" />
@@ -137,7 +140,21 @@ $activity = explode(',', $activity);
                             $('#subList').hide();
                         }
                 );
-
+$('#profile_pic').submit(function(){debugger;var file = $("input#file").val();
+  $.ajax({
+    url: 'upload/doupload',
+    type: 'POST',
+      dataType: "json",//expect return data as html from server
+   data: "file="+file,
+   cache: false,
+   success: function(response, textStatus, jqXHR){ debugger;
+     $("#my_image").attr("src",response);  //select the id and put the response in the html
+    },
+   error: function(jqXHR, textStatus, errorThrown){
+      console.log('error(s):'+textStatus, errorThrown);
+   }
+ });
+ });
 
                 $('a.login-window').click(function() {
                     //Getting the variable's value from a link 
@@ -197,6 +214,9 @@ $activity = explode(',', $activity);
                             $('#pay_am-' + ids).hide();
                         }
                     });
+					
+					
+					
                 });
 
 
