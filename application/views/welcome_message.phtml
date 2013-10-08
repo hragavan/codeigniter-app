@@ -198,10 +198,7 @@ $('#profile_pic').submit(function(){debugger;var file = $("input#file").val();
                            // alert($(this).attr('name'));
                 });
                     var ajaxurl = document.location.hostname + "/ActivityController/save";
-                    var postData = {
-                        'invoice_id': ids,
-                  
-                    };
+                
                     $.ajax({
                         type: "POST",
                         url: ajaxurl,

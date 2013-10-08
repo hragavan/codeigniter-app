@@ -8,7 +8,7 @@ function __construct()
   $this->load->model('activity','',TRUE);
  }
 	
-	function index()
+	function save()
 	{	
 	 
 	 $result=$this->activity->save_Activity($this->input->post()); 
