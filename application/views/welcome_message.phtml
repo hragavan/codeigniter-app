@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="/assets/css/homepage.css" /> 
-<link rel="stylesheet" type="text/css" href="/assets/css/loginPage.css" /> 
-<link rel="stylesheet" type="text/css" href="/assets/css/datepicker.css" /> 
+<link rel="stylesheet" type="text/css" href="/assets/css/homepage.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/loginPage.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/datepicker.css" />
 <meta charset="utf-8">
 <meta name="description" content="Self Analyzer - Codeigniter app">
 <title>Welcome to CodeIgniter</title>
 </head>
 
 <body>
-    
+
 <div><img src="/assets/images/city.jpg" class="front-image"></div>
 <ul id="nav">
 <li id="home"><a href="#">Home</a></li>
@@ -31,14 +31,14 @@
 <div id="left_profile" style='float: left;width: 200px;'>
 <!--<?php echo form_open_multipart('upload/doupload');?>-->
 	<form id="profile_pic" enctype="multipart/form-data" onsubmit ="return false;">
-	
+
 	<!--	<img id="user_picture" src="<? echo "../../application/uploads/".$filepath?>">-->
-	
+
 		<img id="user_picture" src="http://www.madico.com/wp-content/uploads/2009/10/avatar-empty.gif" style="width:100px;">
-	
+
 <input type="file" id="file" name="file" size="2000000" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png" size="26" /><br/>
 <br /><br />
-<INPUT type="submit" class="button" name="Submit" value=" Submit" /> 
+<INPUT type="submit" class="button" name="Submit" value=" Submit" />
 &nbsp;&nbsp;<INPUT type="reset" class="button" value="Cancel" />
 </form>
 </div>
@@ -46,7 +46,7 @@
 
 
 
-<div class="content" style="position:relative;float:right;width:200px;">
+<div id="content" style="position:relative;float:right;width:200px;">
 
 <?php
 $i = 0;
@@ -54,11 +54,11 @@ $activity = explode(',', $activity);
 ?>
 
 <? foreach ($activity as $a) { ?>
-    <div>	
-        <input type="checkbox" id="chkbox-<? echo $i; ?>" name="<? echo $a ?>" onclick="checkbox_change(this)"><? echo $a ?> </>
+   
+        <input type="checkbox" class="mybox" id="chkbox-<? echo $i; ?>" name="<? echo $a ?>" onclick="checkbox_change(this)"><? echo $a ?> </>
         <input type="text" id="txtbox-<? echo $i; ?>" style="display:none;color:#000;"/>
-       
-    </div>
+
+    
     <?
     $i++;
 }
@@ -84,7 +84,7 @@ $activity = explode(',', $activity);
     <label>
         <span>Time spent</span> </label>
 
-    <span><input id="hours" name="hours" value="" type="text" style="width:40px" placeholder="hours"/> 
+    <span><input id="hours" name="hours" value="" type="text" style="width:40px" placeholder="hours"/>
 
 
         <input id="minutes" name="minutes" value="" type="text" style="width:40px" placeholder="minutes"/> </span>
@@ -92,7 +92,7 @@ $activity = explode(',', $activity);
     <input type="submit" id="activityAdd" name="activityAdd">Add</>
     <p>
 
-    </p>        
+    </p>
 </fieldset>
 </form>
 
@@ -118,105 +118,140 @@ $activity = explode(',', $activity);
 <input type="radio" name="lastname" value="LastName">Last Name<br>
 <input type="radio" name="email" value="Email">Email<br>
 </div>
+<div id="googleChart"></div>
+	 
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.js"></script>
 <script type="text/javascript" src="/assets/js/jquery.js"></script>
+
+
+
+
+
 <script type="text/javascript">
-            function checkbox_change(chkbox)
-            {
-                debugger;
-                var idArr = chkbox.id.split('-');
-                $('#txtbox-' + idArr[1]).toggle();
+function checkbox_change(chkbox)
+{
+	//debugger;
+	var idArr = chkbox.id.split('-');
+	$('#txtbox-' + idArr[1]).toggle();
+}
 
-            }
-            $(document).ready(function() {
-                $('#subList').css("display", "none");
-                $('#activity').hover(function() {
-                    $('#subList').fadeIn('slow');
-                    $('#subList').show();
-                },
-                        function() {
-                            $('#subList').fadeOut('slow');
-                            $('#subList').hide();
-                        }
-                );
-$('#profile_pic').submit(function(){debugger;var file = $("input#file").val();
-  $.ajax({
-    url: 'upload/doupload',
-    type: 'POST',
-      dataType: "json",//expect return data as html from server
-   data: "file="+file,
-   cache: false,
-   success: function(response, textStatus, jqXHR){ debugger;
-     $("#my_image").attr("src",response);  //select the id and put the response in the html
-    },
-   error: function(jqXHR, textStatus, errorThrown){
-      console.log('error(s):'+textStatus, errorThrown);
-   }
- });
- });
+$(document).ready(function() {
+	$('#subList').css("display", "none");
+	$('#activity').hover(function() {
+		$('#subList').fadeIn('slow');
+		$('#subList').show();
+	},
+			function() {
+				$('#subList').fadeOut('slow');
+				$('#subList').hide();
+			}
+	);
+$('#profile_pic').submit(function(){
+		debugger;var file = $("input#file").val();
+		$.ajax({
+			url: 'upload/doupload',
+			type: 'POST',
+			dataType: "json",//expect return data as html from server
+			data: "file="+file,
+			cache: false,
+			success: function(response, textStatus, jqXHR){ debugger;
+					 $("#my_image").attr("src",response);  //select the id and put the response in the html
+				},
+			error: function(jqXHR, textStatus, errorThrown){
+					console.log('error(s):'+textStatus, errorThrown);
+					}
+			});
+});
 
-                $('a.login-window').click(function() {
-                    //Getting the variable's value from a link 
-                    var loginBox = $(this).attr('href');
-                    $('#datepicker').datepicker();
-                    //Fade in the Popup
-                    $(loginBox).fadeIn(300);
+	$('a.login-window').click(function() {
+		//Getting the variable's value from a link
+		var loginBox = $(this).attr('href');
+		$('#datepicker').datepicker();
+		//Fade in the Popup
+		$(loginBox).fadeIn(300);
 
-                    //Set the center alignment padding + border see css style
-                    var popMargTop = ($(loginBox).height() + 24) / 2;
-                    var popMargLeft = ($(loginBox).width() + 24) / 2;
+		//Set the center alignment padding + border see css style
+		var popMargTop = ($(loginBox).height() + 24) / 2;
+		var popMargLeft = ($(loginBox).width() + 24) / 2;
 
-                    $(loginBox).css({
-                        'margin-top': -popMargTop,
-                        'margin-left': -popMargLeft
-                    });
+		$(loginBox).css({
+			'margin-top': -popMargTop,
+			'margin-left': -popMargLeft
+		});
 
-                    // Add the mask to body
-                    $('#mask').show();
-                    $('#mask').fadeIn(300);
+		// Add the mask to body
+		$('#mask').show();
+		$('#mask').fadeIn(300);
 
-                    return false;
-                });
+		return false;
+	});
 
-                // When clicking on the button close or the mask layer the popup closed
-                $('a.close, #mask').live('click', function() {
-                    $('#mask , .login-popup').fadeOut(300, function() {
-                        $('#mask').remove();
-                    });
-                    return false;
-                });
-                $('#activity-submit').click(function() {
-                    debugger;
-                    $('.sidebar input:checked').each(function() {
-                        var idArr = chkbox.id.split('-');
-                        var postData= {
-                            'activity' : $(this).attr('name'),
-                            'time' : $('#txtbox'+idArr[1]).val()
-                        };
-                    });
-                           // alert($(this).attr('name'));
-                });
-                    var ajaxurl = document.location.hostname + "/ActivityController/save";
-                
-                    $.ajax({
-                        type: "POST",
-                        url: ajaxurl,
-                        dataType: "json",
-                        data: postData,
-                        success: function() {
-                            alert("you added payment of amount " + amt + " USD for this invoice.");
-                            $('#pay_am-' + ids).value = "";
-                            $('#add-' + ids).hide();
-                            $('#pay_am-' + ids).hide();
-                        }
-                    });
-					
-					
-					
-                });
+	// When clicking on the button close or the mask layer the popup closed
+	$('a.close, #mask').live('click', function() {
+		$('#mask , .login-popup').fadeOut(300, function() {
+			$('#mask').remove();
+		});
+		return false;
+	});
+	
+	
+	$('#activity-submit').click(function() {
+		var myCheckboxes = new Array();
+		debugger;
+		$('#content .mybox').each(function() { 
+		if(this.checked){
+			var idArr = this.id.split('-');
+			postData= {
+				'activity' : $(this).attr('name'),
+				'time'	: $('#txtbox-'+idArr[1]).val()
+			};
+			myCheckboxes.push(postData);
+		  }
+		});
+			   // alert($(this).attr('name'));
+	
+		var ajaxurl = "ActivityController";
+		data = JSON.stringify(myCheckboxes)
+		$.ajax({
+			type: "POST",
+			url: ajaxurl+"/save",
+			dataType: "json",
+			data: {'data': data},
+			success: function(response) { debugger;
+				//var html = response.GoogleChart; 
+				//$("#googleChart").html(html);
+				$.ajax({
+							  url: 'https://www.google.com/jsapi?callback',
+							  cache: true,
+							  dataType: 'script',
+							  success: function(){ debugger;
+								google.load('visualization', '1', {packages:['corechart'], 'callback' : function()
+								  {
+										$.ajax({
+											 type: "POST",
+											 dataType: "json",									
+											 url: ajaxurl+'/chart',
+											 success: function(jsonData) { debugger;
+												var data = new google.visualization.DataTable(jsonData);
 
+												var options = {title: 'My Daily Activities'};
 
+												var chart = new google.visualization.PieChart(document.getElementById('googleChart'));
+												chart.draw(data, options);
+											 }
+										});   
+								  }
+								});
+
+							  }
+		});
+    
+		}
+	});
+		
+	});
+});
 </script>
 </body>
 
