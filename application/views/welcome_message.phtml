@@ -46,7 +46,7 @@
 
 
 
-<div id="content" style="position:relative;float:right;width:200px;">
+<div id="content">
 
 <?php
 $i = 0;
@@ -54,11 +54,11 @@ $activity = explode(',', $activity);
 ?>
 
 <? foreach ($activity as $a) { ?>
-   
+	<div>   
         <input type="checkbox" class="mybox" id="chkbox-<? echo $i; ?>" name="<? echo $a ?>" onclick="checkbox_change(this)"><? echo $a ?> </>
         <input type="text" id="txtbox-<? echo $i; ?>" style="display:none;color:#000;"/>
 
-    
+    </div>
     <?
     $i++;
 }

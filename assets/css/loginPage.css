@@ -238,8 +238,11 @@ bottom: 0;
 left: 0;
 position: absolute;
 right: 0;
-top: 76px;
+top: 46px;
 color: #000;
+position:relative;
+float:right;
+width:300px;
 }
 #choose_activity #sidebar {
 border-right: 1px solid #ececec;
@@ -265,7 +268,7 @@ top: 0;
 #googleChart
 {
 	position:relative;
-	top:50px;
+	top:70px;
 	bottom:50px;
 	float:right;
 }
