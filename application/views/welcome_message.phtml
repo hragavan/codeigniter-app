@@ -237,7 +237,7 @@ $('#profile_pic').submit(function(){
 			var idArr = this.id.split('-');
 			postData= {
 				'activity' : $(this).attr('name'),
-				'time'	: $('#txtbox-'+idArr[1]).val()
+				'time'	: $('#data-slider-'+idArr[1]).val()
 			};
 			myCheckboxes.push(postData);
 		  }
